@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECS 171 Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Salary Prediction Model</h1>
+    <form id="salaryForm">
+    <label for="jobCategory">Job Category:</label>
+    <select id="jobCategory" required aria-label="Job Category">
+    <option value="" disabled selected>Select a category</option>
+    <option value="technology">Technology</option>
+    <option value="business">Business</option>
+    <option value="human_resources">Human Resources</option>
+    <option value="information_technology">Information Technology</option>
+    <option value="social_media">Social Media</option>
+    <option value="design">Design</option>
+    <option value="research_science">Research and Science</option>
+    <option value="miscellaneous">Miscellaneous</option>
+    </select>
+
+    <label for="experience">Years of Experience:</label>
+    <input type="number" id="experience" placeholder="Enter years of experience" required min="0">
+    <label for="country">Country:</label>
+    <select id="country" required aria-label="Country">
+    <option value="" disabled selected>Select a country</option>
+    <option value="usa">USA</option>
+    <option value="china">China</option>
+    <option value="australia">Australia</option>
+    <option value="uk">UK</option>
+    <option value="canada">Canada</option>
+    </select>
+
+    <fieldset>
+    <legend>Education Level (0-3):</legend>
+    <label><input type="radio" name="education" value="0" checked> 0</label>
+    <label><input type="radio" name="education" value="1" > 1</label>
+    <label><input type="radio" name="education" value="2" > 2</label>
+    <label><input type="radio" name="education" value="3" > 3</label>
+    </fieldset>
+
+    <fieldset>
+    <legend>Senior Role:</legend>
+    <label><input type="radio" name="senior" value="yes" required> Yes</label>
+    <label><input type="radio" name="senior" value="no" required> No</label>
+    </fieldset>
+
+    <button type="submit" id="submitBtn">Predict Salary</button>
+    </form>
+
+    <div id="output" class="output hidden">
+    <strong>Predicted Salary:</strong>
+    <p id="predictedSalary">$0.00</p>
+</div>    
+</body>
+</html>
