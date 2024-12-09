@@ -14,6 +14,9 @@ with open('encoder.pkl', 'rb') as f:
 
 with open('pca.pkl', 'rb') as f:
     pca = pickle.load(f)
+    
+with open('scaler_y.pkl', 'rb') as f:
+    scaler_y = pickle.load(f)
 
 
 @app.route("/")
@@ -50,8 +53,10 @@ def predict():
 
         # Format the prediction for display
         predicted_class = prediction[0]  # Assuming single class output
+        
+        prediction = str(scaler_y.inverse_transform(predicted_class.reshape(-1, 1))).strip("[").strip("]")
 
-        return render_template("results.html", prediction=predicted_class)
+        return render_template("results.html", prediction=prediction)
 
     else:
         return "Something went wrong. Please try again."
