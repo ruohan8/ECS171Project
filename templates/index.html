@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECS 171 Project</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Salary Prediction Model</h1>
+    <form method="POST" action="/predict"> 
+        <form id="salaryForm">
+        <label for="jobCategory">Job Category:</label>
+        <select id="jobCategory" name="jobCategory" required aria-label="Job Category">
+        <option value="" disabled selected>Select a category</option>
+        <option value="Technology">Technology</option>
+        <option value="Business">Business</option>
+        <option value="Human Resources">Human Resources</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Social Media">Social Media</option>
+        <option value="Design">Design</option>
+        <option value="Research and Science">Research and Science</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+        </select>
+
+        <label for="experience">Years of Experience:</label>
+        <input type="number" id="experience" name="experience" placeholder="Enter years of experience" required min="0">
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter age in years" required min="0">
+
+        <label for="country">Country:</label>
+        <select id="country" name="country" required aria-label="Country">
+        <option value="" disabled selected>Select a country</option>
+        <option value="USE">USA</option>
+        <option value="China">China</option>
+        <option value="Australia">Australia</option>
+        <option value="UK">UK</option>
+        <option value="Canada">Canada</option>
+        </select>
+
+        <label for="race">Race:</label>
+        <select id="race" name="race" required aria-label="Race">
+        <option value="" disabled selected>Select Race</option>
+        <option value="White">White</option>
+        <option value="Hispanic">Hispanic</option>
+        <option value="Asian">Asian</option>
+        <option value="Korean">Korean</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Australian">Australian</option>
+        <option value="Welsh">Welsh</option>
+        <option value="African American">African American</option>
+        <option value="Mixed">Mixed</option>
+        <option value="Black">Black</option>
+        </select>
+
+        <fieldset>
+        <legend>Education Level (0-3):</legend>
+        <label><input type="radio" name="education" value="0" checked> 0</label>
+        <label><input type="radio" name="education" value="1" > 1</label>
+        <label><input type="radio" name="education" value="2" > 2</label>
+        <label><input type="radio" name="education" value="3" > 3</label>
+        </fieldset>
+
+        <fieldset>
+        <legend>Gender:</legend>
+        <label><input type="radio" name="gender" value="Male" required> Male</label>
+        <label><input type="radio" name="gender" value="Female" required> Female</label>
+        </fieldset>
+
+        <fieldset>
+        <legend>Senior Role:</legend>
+        <label><input type="radio" name="senior" value="1" required> Yes</label>
+        <label><input type="radio" name="senior" value="0" required> No</label>
+        </fieldset>
+
+        <button type="submit" id="submitBtn">Predict Salary</button>
+    </form>
+
+    <div id="output" class="output hidden">
+    <strong>Predicted Salary:</strong>
+    <p id="predictedSalary">$0.00</p>
+</div>    
+</body>
+</html>
