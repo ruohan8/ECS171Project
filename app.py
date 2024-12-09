@@ -46,12 +46,12 @@ def predict():
         input_data = pca.transform(data_encoded)
         
         # Make prediction using your model
-        prediction = model.predict([input_data])  # Assuming a list input
+        prediction = model.predict(input_data)  # Assuming a list input
 
         # Format the prediction for display
         predicted_class = prediction[0]  # Assuming single class output
 
-        return render_template("result.html", prediction=predicted_class)
+        return render_template("results.html", prediction=predicted_class)
 
     else:
         return "Something went wrong. Please try again."
